@@ -2,28 +2,28 @@ package ex01;
 
 import lombok.Data;
 
-
-//DTO 파일
 @Data
-class UserDTO{
+class UserDTO2{
     private int id;
     private String username;
     private String email;
+
+    public UserDTO2(int id, String username, String email) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+    }
 }
 
-public class CopyEx01 {
+public class CopyEx02 {
     public static void main(String[] args) {
-        // 예제 1번 : 세터 이용하기
+        // 예제 2번 : 생성자 이용하기
         User user = new User();
         user.setId(1);
         user.setUsername("ssar");
         user.setEmail("ssar@metacoding.com");
 
-        UserDTO dto = new UserDTO();
-        dto.setId(user.getId());
-        dto.setUsername(user.getUsername());
-        dto.setEmail(user.getEmail());
-
+        UserDTO2 dto = new UserDTO2(user.getId(), user.getUsername(), user.getEmail());
         System.out.println(dto);
     }
 }

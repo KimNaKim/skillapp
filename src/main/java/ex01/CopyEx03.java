@@ -2,28 +2,28 @@ package ex01;
 
 import lombok.Data;
 
-
-//DTO 파일
 @Data
-class UserDTO{
+class UserDTO3{
     private int id;
     private String username;
     private String email;
+
+    public UserDTO3(User user) {
+        this.id = user.getId();
+        this.username = user.getUsername();
+        this.email = user.getEmail();
+    }
 }
 
-public class CopyEx01 {
+public class CopyEx03 {
     public static void main(String[] args) {
-        // 예제 1번 : 세터 이용하기
+        // 예제 3번 :  DTO에 직접 값 넘기기
         User user = new User();
         user.setId(1);
         user.setUsername("ssar");
         user.setEmail("ssar@metacoding.com");
 
-        UserDTO dto = new UserDTO();
-        dto.setId(user.getId());
-        dto.setUsername(user.getUsername());
-        dto.setEmail(user.getEmail());
-
+        UserDTO3 dto = new UserDTO3(user);
         System.out.println(dto);
     }
 }
